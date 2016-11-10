@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="testingApp">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="js/app.js"></script>
+</head>
+
+<body ng-controller="firstController">
+    <header>
+        <h1>{{title}}</h1>
+    </header>
+
+    <form name="destinationForm" ng-submit="addDestination()">
+        City: <input name="city" type="text" ng-model="newDestination.city" /> Country: <input name="country" type="text"
+            ng-model="newDestination.country" /> <br />
+        <input type="submit" value="Add" />
+    </form>
+
+    <section>
+        <h2>Your Trip</h2>
+        <div ng-repeat="destination in destinations">
+            <span>{{destination.city}}, {{destination.country}} </span>
+            <button ng-click="removeDestination($index)">Remove</button>
+        </div>
+    </section>
+</body>
+
+</html>
